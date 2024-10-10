@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000; /* Set background to black */
+            color: #fff; /* Set text color to white for contrast */
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-container {
+            padding: 30px;
+            background-color: #1c1c1c; /* Dark grey background for the form */
+            border-radius: 15px;
+            width: 320px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: white;
+        }
+        input[type="submit"], .skip-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .skip-button {
+            background-color: #888; /* Different color for the skip button */
+        }
+        .skip-button:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <img src="logo.png" alt="Company Logo" class="logo">
+        <form onsubmit="return handleLogin(event)">
+            <input type="text" id="userId" name="userId" placeholder="User ID" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+        <button class="skip-button" onclick="skipToHomepage()">Skip to Homepage</button>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Add any necessary validation here
+            const userId = document.getElementById('userId').value;
+            const password = document.getElementById('password').value;
+
+            // For example, simple validation
+            if (userId === "admin" && password === "password") {
+                // If credentials are correct, redirect to homepage
+                window.location.href = "homepage.html"; // Redirect to the homepage
+            } else {
+                alert("Invalid User ID or Password!"); // Show an error alert
+            }
+        }
+
+        function skipToHomepage() {
+            window.location.href = "pj2.html"; // Redirect to the homepage
+        }
+    </script>
+
+</body>
+</html>
